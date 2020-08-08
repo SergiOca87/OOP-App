@@ -1,0 +1,25 @@
+{
+  "name": "OOP-App",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "rollup": "rollup src/main.js --file bundle.js --format iife",
+    "eslintConfig": "npx eslint --init",
+    "watch:sass": "node-sass src/scss/style.scss src/css/style.css -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "eslint": "^7.6.0"
+  },
+  "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "node-sass": "^4.14.1"
+  }
+}
