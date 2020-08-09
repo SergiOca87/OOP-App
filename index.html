@@ -4,38 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <link rel="stylesheet" href="src/css/style.css">
 </head>
 <body>
     <h1>Hello</h1>
     <div class="controls">
         <span class="workers-search"></span><span class="workers-sort"></span>
     </div>
-    <form class="workers-form">
-        <label for="name">Name</label>
-        <input type="text" name="name" id="name">
 
-        <label for="gender">Gender</label>
-        <select name="gender" id="gender">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="genderqueer">Genderqueer/Non-Binary</option>
-            <option value="other">Other/Prefer not to disclose</option>
-        </select>
+    <div class="container">
+        <form class="col workers-form">
+            <div class="row">
+                <div class="input-field col s12 m4 16">
+                    <input type="text" name="name" id="name" required="required">
+                    <label for="name">Name</label>
+                </div>
 
-        <label for="technology"></label>
-        <select name="technology" id="technology">
-            <option value="vue">Vue</option>
-            <option value="react">React</option>
-            <option value="gatsby">Gatsby</option>
-            <option value="other">Other</option>
-        </select>
+                <div class="input-field col s12 m4 16">
+                    <select name="gender" id="gender" required="required">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="genderqueer">Genderqueer/Non-Binary</option>
+                        <option value="other">Other/Prefer not to disclose</option>
+                    </select>
+                    <label for="gender">Gender</label>
+                </div>
 
-        <input type="submit" class="worker-submit" value="Add Worker">
-    </form>
+                <div class="input-field col s12 m4 16">
+                    <select name="technology" id="technology" required="required">
+                        <option value="vue">Vue</option>
+                        <option value="react">React</option>
+                        <option value="gatsby">Gatsby</option>
+                    </select>
+                    <label for="technology"></label>
+                </div>
+            </div>
 
-    <div class="display-row">
+            <input type="submit" class="worker-submit" value="Add Worker">
+        </form>
 
+        <div class="display-row">
+            <div class="row">
+
+            </div>
+        </div>
     </div>
+    <script src="./src/js/materialize.min.js"></script>
     <script defer src="./src/js/main.js"></script>
 </body>
 </html>

@@ -1,0 +1,63 @@
+@import 'materialize';
+
+body {
+    background-color: #f0ead6;
+}
+
+.input-field input[type=search]:focus:not(.browser-default) {
+    background-color: transparent;
+}
+
+.header {
+    text-align: center;
+    color: #26a69a;
+}
+
+
+form {
+    padding: 2rem !important;
+    background-color: #f5f2e8;
+    transition: box-shadow 500ms;
+    margin-bottom: 2rem;
+
+    &:hover {
+        box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
+    }
+
+    .row:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+input[type=text], input[type=number] {
+    padding: 0 5px !important;
+}
+
+label {
+    margin-top: -3px;
+}
+
+
+.display {
+    margin-top: 3rem;
+    min-height: 340px;
+}
+
+.card {
+
+    hr {
+        margin: 1.5rem 0 1.5rem 0;
+    }
+
+    h3 {
+        margin: 1rem 0;
+        font-size: 2rem;
+    }
+
+    &-action {
+        
+        p {
+            margin-top: 0;
+        }
+    }
+}

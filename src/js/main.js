@@ -1,4 +1,11 @@
 
+
+//Materialize Input Fields
+document.addEventListener("DOMContentLoaded", function() {
+    var elems = document.querySelectorAll("select");
+    var instances = M.FormSelect.init(elems);
+});
+
 // Create a Main Class Worker
 class Startup {
     constructor(workers, workersDisplay, workerSearch, workerSort, workersForm) {
@@ -14,14 +21,44 @@ class Startup {
     createWorker = (e) => {
         e.preventDefault();
         
-        //Create a new worker with the form values and the Worker Class
+        // Get form values
+        const inputs = document.querySelector(".workers-form");
+        const name  = inputs["name"].value;
+        const gender  = inputs["gender"].value;
+        const technology  = inputs["technology"].value;
+
+        //Create a new worker with the form values and the Worker Class as a blueprint
+        const worker = new Worker(name, gender, technology);
+
+        this.renderWorker(worker);
     };
 
-    renderWorker = () => {
+    renderWorker = async(worker) => {
 
         //Render the new worker
+        let workerImg = await this.apiDetails(worker.gender, worker.technology)
 
+        const workerCard = `
+            <div class="col m6 l4 center-align">
+                <div class="card">
+                    <img src='${workerImg}' />
+                    <h3>${worker.name}</h3>
+                    <div class="card-action">
+                        <p>${worker.introduction()}</p>
+                    </div>
+                </div>
+            </div>
+        `
+        this.workersDisplay.insertAdjacentHTML('beforeend', workerCard);
         //Maybe after render, have them introduce themselves with a nice tooltip
+    }
+
+    apiDetails = (gender, technology) => {
+
+        const query = gender === 'female' ? `https://bigheads.io/svg?body=breasts&hair=bun&facialHair=none&graphic=${technology}&clothing=shirt`
+        : gender === 'male' ? `https://bigheads.io/svg?body=chest&lashes=false&graphic=${technology}&clothing=shirt` : `https://bigheads.io/svg?&graphic=${technology}&clothing=shirt`
+    
+        return query;
     }
 
     workerSearch = () => {
@@ -54,7 +91,7 @@ class Worker {
 //DOM selectors and empty Array to initiate the Startup
 const startupComponents = [
     [],
-    document.querySelector(".display-row"),
+    document.querySelector(".display-row .row"),
     document.querySelector(".workers-search"),
     document.querySelector(".workers-sort"),
     document.querySelector(".workers-form")
